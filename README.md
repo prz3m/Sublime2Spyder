@@ -16,3 +16,9 @@ You can find a lot of Sublime themes at [Colorsublime](http://colorsublime.com/)
 7. Add your theme's name in `names` list
   (look for `names = ['emacs', 'idle', 'monokai', 'pydev', 'scintilla', 'spyder', 'spyder/dark', 'zenburn']` line).
 8. Run Spyder, go to Preferences -> Syntax coloring, select your theme and that's all!
+
+# Examples
+
+Here is [Solarized dark](http://colorsublime.com/theme/Solarized-dark) theme in Spyder:
+
+![Solarized dark](/../screenshots/solarizeddark.png?raw=true)
