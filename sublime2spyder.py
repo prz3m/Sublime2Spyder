@@ -1,40 +1,12 @@
 # coding=utf-8
 import argparse
 import plistlib
-from colour import Color
-
-
-class Kolor(Color):
-    """extends Color from colour library with method to handle alpha channel
-    (8 digits hex color code)
-    """
-    def __init__(self, hex, background='#FFFFFF'):
-        """creates Color object from hex code
-        if code is 8 digits, it converts it to normal 6 digit code via
-        _convertAlphaChannel method
-        :param hex: hex color code (3, 6 or 8 digits)
-        :param background: hex code of background color
-        """
-        if len(hex) == 9:
-            alpha = hex[-2:]
-            hex = hex[:-2]
-            super().__init__(hex)
-            self._convertAlphaChannel(alpha, background)
-        else:
-            super().__init__(hex)
-
-    def _convertAlphaChannel(self, alpha, background):
-        """changes base color (first 6 digits) to a color on background
-        with opacity (last 2 digits)
-        """
-        a = int(alpha, base=16)/255.
-        bg = Color(background)
-        self.luminance = (1. - a) * bg.luminance + a * self.luminance
+from kolor import Kolor
 
 
 class SyntaxConverter():
     """
-    converters syntax highligting theme from SublimeText to Spyder
+    converts syntax highligting theme from SublimeText to Spyder
     """
     def __init__(self, path):
         """
@@ -53,7 +25,7 @@ class SyntaxConverter():
         self.background = self.settings['background']['foreground']
 
         # check if theme is dark or bright
-        if Color(self.background).luminance < 0.5:
+        if Kolor(self.background).luminance < 0.5:
             self.dark = True
         else:
             self.dark = False

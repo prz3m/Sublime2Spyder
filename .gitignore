@@ -1,0 +1,5 @@
+*.css
+*.ini
+*.tmTheme
+syntax_converter.py
+*.less
